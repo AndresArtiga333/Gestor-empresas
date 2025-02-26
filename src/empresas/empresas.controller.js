@@ -36,3 +36,29 @@ export const listarEmpresas = async (req, res) => {
     }
 }
 
+export const filtrarEmpresasPorAño = async (req, res) => {
+    try {
+        const {min, max} = req.body;
+        let filtro = {};
+
+        if (min !== undefined){
+            filtro.añosDeTrayectoria = {$gte: parseInt(min)};
+        }
+        if (max !== undefined){
+            filtro.añosDeTrayectoria = {...filtro.añosDeTrayectoria, $lte: parseInt(max)};
+        }
+        const empresas = await Empresas.find(filtro).sort({añosDeTrayectoria: 1});
+        res.status(200).json({
+            success: true,
+            message: "Empresas filtradas con éxito",
+            data: empresas
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener las empresas",
+            error: error.message
+        })
+    }
+}
