@@ -36,11 +36,14 @@ export const listarEmpresas = async (req, res) => {
     }
 }
 
-export const filtrarEmpresasPorAño = async (req, res) => {
+export const filtrarEmpresas = async (req, res) => {
     try {
-        const {min, max} = req.body;
+        const {min, max, categoria} = req.body;
         let filtro = {};
 
+        if (categoria !== undefined){
+            filtro.categoriaEmpresarial = categoria;
+        }
         if (min !== undefined){
             filtro.añosDeTrayectoria = {$gte: parseInt(min)};
         }
@@ -53,7 +56,7 @@ export const filtrarEmpresasPorAño = async (req, res) => {
             message: "Empresas filtradas con éxito",
             data: empresas
         })
-        
+
     } catch (error) {
         res.status(500).json({
             success: false,
