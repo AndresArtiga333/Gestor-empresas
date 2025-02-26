@@ -12,3 +12,9 @@ export const registrarEmpresaValidator = [
     body("añoDeFundacion").notEmpty().withMessage("El año de fundación es requerido"),
     validarCampos
 ]
+
+export const listarEmpresasValidator = [
+    validateJWT,
+    hasRoles("ADMIN"),
+    validarCampos
+]
