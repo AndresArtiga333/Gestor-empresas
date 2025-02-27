@@ -26,6 +26,9 @@ const empresasSchema = Schema({
 });
 
 empresasSchema.pre('save', function(next) {
+    if (this.nombre) {
+        this.nombre = this.nombre.toLowerCase(); 
+    }
     const añoActual = new Date().getFullYear();
     this.añosDeTrayectoria = añoActual - this.añoDeFundacion;
     next();

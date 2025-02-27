@@ -38,7 +38,7 @@ export const listarEmpresas = async (req, res) => {
 
 export const filtrarEmpresas = async (req, res) => {
     try {
-        const {min, max, categoria} = req.body;
+        const {min, max, categoria, ordenAscendente, ordenDescendente} = req.body;
         let filtro = {};
 
         if (categoria !== undefined){
@@ -50,47 +50,24 @@ export const filtrarEmpresas = async (req, res) => {
         if (max !== undefined){
             filtro.añosDeTrayectoria = {...filtro.añosDeTrayectoria, $lte: parseInt(max)};
         }
-        const empresas = await Empresas.find(filtro).sort({añosDeTrayectoria: 1});
+        let orden = {}; 
+
+        if (ordenAscendente) {
+            orden.nombre = 1; 
+        } else if (ordenDescendente) {
+            orden.nombre = -1; 
+        } else {
+            orden.nombre = 1; 
+        }
+
+        orden.añosDeTrayectoria = 1;
+        const empresas = await Empresas.find(filtro).sort(orden);
         res.status(200).json({
             success: true,
             message: "Empresas filtradas con éxito",
             data: empresas
         })
 
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al obtener las empresas",
-            error: error.message
-        })
-    }
-}
- 
-export const listarPorOrdenAlgabeticoAscendente = async (req, res) => {
-    try {
-        const empresas = await Empresas.find().sort({nombre: 1});
-        res.status(200).json({
-            success: true,
-            message: "Empresas obtenidas con éxito",
-            data: empresas
-        })
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al obtener las empresas",
-            error: error.message
-        })
-    }
-}
-
-export const listarPorOrdenAlgabeticoDescendente = async (req, res) => {
-    try {
-        const empresas = await Empresas.find().sort({nombre: -1});
-        res.status(200).json({
-            success: true,
-            message: "Empresas obtenidas con éxito",
-            data: empresas
-        })
     } catch (error) {
         res.status(500).json({
             success: false,
