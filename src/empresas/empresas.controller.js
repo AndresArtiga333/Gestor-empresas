@@ -65,3 +65,37 @@ export const filtrarEmpresas = async (req, res) => {
         })
     }
 }
+ 
+export const listarPorOrdenAlgabeticoAscendente = async (req, res) => {
+    try {
+        const empresas = await Empresas.find().sort({nombre: 1});
+        res.status(200).json({
+            success: true,
+            message: "Empresas obtenidas con éxito",
+            data: empresas
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener las empresas",
+            error: error.message
+        })
+    }
+}
+
+export const listarPorOrdenAlgabeticoDescendente = async (req, res) => {
+    try {
+        const empresas = await Empresas.find().sort({nombre: -1});
+        res.status(200).json({
+            success: true,
+            message: "Empresas obtenidas con éxito",
+            data: empresas
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener las empresas",
+            error: error.message
+        })
+    }
+}
