@@ -22,24 +22,7 @@ export const registrarEmpresa = async (req, res) => {
     }
 }
 
-export const listarEmpresas = async (req, res) => {
-    try {
-        const empresas = await Empresas.find();
-        res.status(200).json({
-            success: true,
-            message: "Empresas obtenidas con éxito",
-            data: empresas
-        })
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al obtener las empresas",
-            error: error.message
-        })
-    }
-}
-
-export const filtrarEmpresas = async (req, res) => {
+export const listarAndFiltrarEmpresas = async (req, res) => {
     try {
         const {min, max, categoria, ordenAZ, ordenZA} = req.body;
         let filtro = {};
