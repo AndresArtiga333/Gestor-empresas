@@ -9,10 +9,11 @@ const empresasSchema = Schema({
     nivelDeImpacto:{
         type: String,
         required: [true, "El nivel de impacto es requerido"],
+        enum: ["ALTO", "MEDIO", "BAJO"]
     },
     categoriaEmpresarial:{
         type: String,
-        required: [true, "La categoria empresarial es requerida"],
+        required: [true, "La categoria empresarial es requerida"]
     },
     añoDeFundacion:{
         type: Number,
@@ -32,6 +33,14 @@ empresasSchema.pre('save', function(next) {
     const añoActual = new Date().getFullYear();
     this.añosDeTrayectoria = añoActual - this.añoDeFundacion;
     next();
+});
+
+empresasSchema.post('findOneAndUpdate', async function (empresa) {
+    if (empresa && empresa.añoDeFundacion) {
+        const añoActual = new Date().getFullYear();
+        empresa.añosDeTrayectoria = añoActual - empresa.añoDeFundacion;
+        await empresa.save(); 
+    }
 });
 
 export default model("Empresas", empresasSchema);
