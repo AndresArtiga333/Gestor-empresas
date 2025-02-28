@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "67bcfe5fb9f43bc3d2c14bb6"
+  },
+  "nombre": "Admin",
+  "apellido": "PorDefecto",
+  "correo": "admin@gmail.com",
+  "contra": "$2b$10$ihu5mXWzY/CG1/ea2rtoxuS6Y0GXHXRupj7SkSTWgcKHiJOPm7q1W",
+  "rol": "ADMIN",
+  "__v": 0
+}]

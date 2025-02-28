@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "67c240c6fc33dc16cb35d2e3"
+  },
+  "nombre": "almacenes s.a",
+  "nivelDeImpacto": "ALTO",
+  "categoriaEmpresarial": "mediana empresa",
+  "añoDeFundacion": 2020,
+  "añosDeTrayectoria": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c24147fc33dc16cb35d2e6"
+  },
+  "nombre": "barcosx inc",
+  "nivelDeImpacto": "ALTO",
+  "categoriaEmpresarial": "mediana empresa",
+  "añoDeFundacion": 2020,
+  "añosDeTrayectoria": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c2419afc33dc16cb35d2e9"
+  },
+  "nombre": "carlos industries",
+  "nivelDeImpacto": "ALTO",
+  "categoriaEmpresarial": "micro empresa",
+  "añoDeFundacion": 2022,
+  "añosDeTrayectoria": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c24240fc33dc16cb35d2ec"
+  },
+  "nombre": "dutch inc",
+  "nivelDeImpacto": "MEDIO",
+  "categoriaEmpresarial": "mediana empresa",
+  "añoDeFundacion": 2022,
+  "añosDeTrayectoria": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c2427efc33dc16cb35d2ef"
+  },
+  "nombre": "electronins s.a.",
+  "nivelDeImpacto": "BAJO",
+  "categoriaEmpresarial": "micro empresa",
+  "añoDeFundacion": 2019,
+  "añosDeTrayectoria": 6,
+  "__v": 0
+}]
