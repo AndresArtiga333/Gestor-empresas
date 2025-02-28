@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { registrarEmpresa, listarAndFiltrarEmpresas, editarEmpresa } from "./empresas.controller.js";
-import { registrarEmpresaValidator, listarEmpresasValidator } from "../middlewares/empresas-validator.js";
+import { registrarEmpresaValidator, listarEmpresasValidator, editarEmpresaValidator } from "../middlewares/empresas-validator.js";
 
 const router = Router();
 
@@ -113,6 +113,6 @@ router.get("/filtrarEmpresas", listarEmpresasValidator, listarAndFiltrarEmpresas
  *       500:
  *         description: Error al editar la empresa
  */
-router.put("/editarEmpresa/:pid", editarEmpresa)
+router.put("/editarEmpresa/:pid", editarEmpresaValidator, editarEmpresa)
 
 export default router

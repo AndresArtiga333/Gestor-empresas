@@ -24,3 +24,9 @@ export const filtrarEmpresasValidator = [
     hasRoles("ADMIN"),
     validarCampos
 ]
+
+export const editarEmpresaValidator = [
+    validateJWT,
+    hasRoles("ADMIN"),
+    validarCampos
+]
