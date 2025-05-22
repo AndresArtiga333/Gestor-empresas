@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "eb5487ab-34a3-4478-8c42-a43aa7851034",
+		"name": "Gestor de empresas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37641954"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\": \"admin@gmail.com\",\r\n    \"contra\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/gestorDeEmpresas/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"gestorDeEmpresas",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "empresas",
+			"item": [
+				{
+					"name": "Agregar empresas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MwOTllNmE0YzcxNzYxY2JmZmUxZGUiLCJpYXQiOjE3NDA3NTk3NTEsImV4cCI6MTc0MDc2MzM1MX0.mXbRptV_RVRBk-ecmcCQS_ow4hmk5FuUm9mY4_B-2uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Buques S.A\",\r\n    \"nivelDeImpacto\": \"MEDIO\",\r\n    \"categoriaEmpresarial\": \" empresa\",\r\n    \"añoDeFundacion\": 2011\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/gestorDeEmpresas/v1/empresas/registrarEmpresa",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"gestorDeEmpresas",
+								"v1",
+								"empresas",
+								"registrarEmpresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar y filtrar empresas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MwOTllNmE0YzcxNzYxY2JmZmUxZGUiLCJpYXQiOjE3NDA3NTk3NTEsImV4cCI6MTc0MDc2MzM1MX0.mXbRptV_RVRBk-ecmcCQS_ow4hmk5FuUm9mY4_B-2uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/gestorDeEmpresas/v1/empresas/filtrarEmpresas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"gestorDeEmpresas",
+								"v1",
+								"empresas",
+								"filtrarEmpresas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar empresas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MwOTllNmE0YzcxNzYxY2JmZmUxZGUiLCJpYXQiOjE3NDA3NTk3NTEsImV4cCI6MTc0MDc2MzM1MX0.mXbRptV_RVRBk-ecmcCQS_ow4hmk5FuUm9mY4_B-2uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Adddios inc\",\r\n    \"añoDeFundacion\": 2015\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/gestorDeEmpresas/v1/empresas/editarEmpresa/67c09a2ba4c71761cbffe1e4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"gestorDeEmpresas",
+								"v1",
+								"empresas",
+								"editarEmpresa",
+								"67c09a2ba4c71761cbffe1e4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

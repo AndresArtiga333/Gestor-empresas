@@ -4,6 +4,8 @@ import cors from "cors";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
 import authRoutes from "../src/auth/auth.routes.js";
+import empresasRoutes from "../src/empresas/empresas.routes.js";
+import { swaggerDocs, swaggerUi } from "./swagger.js";
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}))
@@ -15,6 +17,8 @@ const middlewares = (app) =>{
 
 const routes = async (app) =>{
     app.use("/gestorDeEmpresas/v1/auth", authRoutes)
+    app.use("/gestorDeEmpresas/v1/empresas", empresasRoutes)
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
 const conectarDB = async () =>{
